@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const uploadCloud = require("../config/cloudinary");
-const multer = require("multer");
+// const multer = require("multer");
 const Schema = mongoose.Schema;
 
 const athleteProfileSchema = new Schema({

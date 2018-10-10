@@ -3,8 +3,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const athleteProfile = require("../../../models/athleteProfile");
-const uploadCloud = require("../../../config/cloudinary");
-const multer = require("multer");
+// const uploadCloud = require("../../../config/cloudinary");
+// const multer = require("multer");
 
 // GET route => to Get Full Athlete Profile
 router.get("/athleteProfile", (req, res, next) => {
