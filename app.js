@@ -19,7 +19,7 @@ require("./config/passport");
 mongoose.Promise = Promise;
 mongoose
   .connect(
-    "mongodb://localhost/predictive-injury-final",
+    process.env.MONGODB_URI,
     {
       useNewUrlParser: true
     }
