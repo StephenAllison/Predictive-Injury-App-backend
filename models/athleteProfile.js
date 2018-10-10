@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const uploadCloud = require("../config/cloudinary");
 
 const Schema = mongoose.Schema;
 
