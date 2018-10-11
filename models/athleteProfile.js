@@ -10,7 +10,7 @@ const athleteProfileSchema = new Schema({
   team: String,
   name: String,
   position: String,
-  injuryStatus: String,
+  currentInjuryStatus: String,
   physicalMediatingFactorScore: Number,
   psychologicalMediatingFactorScore: Number,
   socialMediatingFactorScore: Number,

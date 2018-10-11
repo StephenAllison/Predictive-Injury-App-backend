@@ -3,8 +3,9 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const User = require("../../../models/User");
+const uploadCloud = require("../../../config/cloudinary");
 
-// GET route => to Get Full Athlete Profile
+// GET route => to Get Full User Profile
 router.get("/user", (req, res, next) => {
   User.find()
     .then(user => {
@@ -14,6 +15,35 @@ router.get("/user", (req, res, next) => {
       res.json(err);
     });
 });
+
+router.post(
+  "/createNewUser",
+  uploadCloud.single("imgPath"),
+  (req, res, next) => {
+    console.log("hahahaha");
+    console.log(req.body);
+    console.log(req.file);
+
+    UserProfile.create({
+      imgPath: req.file.url,
+      sport: req.body.sport,
+      league: req.body.league,
+      team: req.body.team,
+      name: req.body.name,
+      staffingDivision: req.body.staffingDivision,
+      role: req.body.role,
+      name: req.body.name,
+      username: req.body.username,
+      password: req.body.password
+    })
+      .then(response => {
+        res.json(response);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  }
+);
 
 // GET route => Find a Specific User by Id
 router.get("/user/:id", (req, res, next) => {

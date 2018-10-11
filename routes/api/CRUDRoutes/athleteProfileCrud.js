@@ -8,7 +8,7 @@ const uploadCloud = require("../../../config/cloudinary");
 const multer = require("multer");
 
 // GET route => to Get Full Athlete Profile
-router.get("/athleteProfile", (req, res, next) => {
+router.get("/athleteProfie", (req, res, next) => {
   athleteProfile
     .find()
     // .populate("moderators")
@@ -21,36 +21,49 @@ router.get("/athleteProfile", (req, res, next) => {
     });
 });
 
+router.get("/athletes", (req, res, next) => {
+  athleteProfile
+    .find()
+    // .populate("moderators")
+    // .populate("mediators")
+    .then(athleteFullProfile => {
+      res.json(athleteFullProfile);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 // POST route => to create a new Athlete Profile
 
 router.post(
   "/createNewAthlete",
-  uploadCloud.single("photo"),
+  uploadCloud.single("imgPath"),
   (req, res, next) => {
-    athleteProfile.create({
-      imgPath: `https://res.cloudinary.com/dw7omfinb/image/upload/${
-        req.file.originalname
-      }`,
-      imgName: req.file.originalname,
-      sport: req.body.sport,
-      league: req.body.league,
-      team: req.body.team,
-      name: req.body.name,
-      position: req.body.position,
-      physicalMediatingFactorScore: req.body.physicalMediatingFactorScore,
-      psychologicalMediatingFactorScore:
-        req.body.psychologicalMediatingFactorScore,
-      socialMediatingFactorScore: req.body.socialMediatingFactorScore,
-      physicalModeratingFactorScore: req.body.physicalModeratingFactorScore,
-      psychologicalModeratingFactorScore:
-        req.body.psychologicalModeratingFactorScore,
-      socialModeratingFactorScore: req.body.socialModeratingFactorScore,
-      injuryRiskScore: req.body.injuryRiskScore,
-      riskLevel: req.body.riskLevel
-    });
-    athleteProfile.save();
-    console
-      .log("++++++REQ.FILE++++++++", req.file)
+    console.log("hahahaha");
+    console.log(req.body);
+    console.log(req.file);
+
+    athleteProfile
+      .create({
+        imgPath: req.file.url,
+        sport: req.body.sport,
+        league: req.body.league,
+        team: req.body.team,
+        name: req.body.name,
+        position: req.body.position,
+        currentInjuryStatus: req.body.currentInjuryStatus,
+        physicalMediatingFactorScore: req.body.physicalMediatingFactorScore,
+        psychologicalMediatingFactorScore:
+          req.body.psychologicalMediatingFactorScore,
+        socialMediatingFactorScore: req.body.socialMediatingFactorScore,
+        physicalModeratingFactorScore: req.body.physicalModeratingFactorScore,
+        psychologicalModeratingFactorScore:
+          req.body.psychologicalModeratingFactorScore,
+        socialModeratingFactorScore: req.body.socialModeratingFactorScore,
+        injuryRiskScore: req.body.injuryRiskScore,
+        riskLevel: req.body.riskLevel,
+        coachingDecision: req.body.coachingDecision
+      })
       .then(response => {
         res.json(response);
       })
@@ -83,8 +96,9 @@ router.get("/athlete/:id", (req, res, next) => {
 //PUT route => Update Athlete
 router.put(
   "/updateAthleteProfile/:id",
-  uploadCloud.single("photo"),
+  uploadCloud.single("imgPath"),
   (req, res, next) => {
+    console.log("AthleteUpdatedSuccessfuly");
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({
         message: "Specified id is not valid"
