@@ -5,6 +5,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 // import axios from "axios";
 import AuthService from "./components/auth/auth-service";
+import AthleteList from "./components/AthleteList";
 
 import { Switch, Route } from "react-router-dom";
 class App extends Component {
@@ -39,10 +40,10 @@ class App extends Component {
     this.fetchUser();
     return (
       <div className="App">
-        {/* <Navbar
+        <Navbar
           setTheUserInTheAppComponent={this.logMeIn}
           userInSession={this.state.loggedInUser}
-        /> */}
+        />
         <Switch>
           <Route
             exact
@@ -54,6 +55,8 @@ class App extends Component {
             path="/signup"
             render={() => <Signup setTheUserInTheAppComponent={this.logMeIn} />}
           />
+          <Route exact path="/athletes" component={AthleteList} />
+          <Route exact path="/athletes/:id" component={AthleteDetails} />
         </Switch>
       </div>
     );

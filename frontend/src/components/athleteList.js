@@ -41,7 +41,7 @@ class athletetList extends Component {
                     athlete._id
                   }`}
                 >
-                  <h3>{athlete.img}</h3>
+                  <h3>{athlete.imgPath}</h3>
                   <h3>{athlete.name}</h3>
                   <h3>
                     Status:
