@@ -9,6 +9,9 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 const cors = require("cors");
+const multer = require("multer");
+
+require("./config/cloudinary");
 
 const session = require("express-session");
 const passport = require("passport");

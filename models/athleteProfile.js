@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const athleteProfileSchema = new Schema({
-  img: String,
+  imgPath: String,
+  imgName: String,
   sport: String,
   league: String,
   team: String,
