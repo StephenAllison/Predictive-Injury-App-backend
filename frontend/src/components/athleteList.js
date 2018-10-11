@@ -4,9 +4,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import createNewAthlete from "./createNewAthlete";
+import AddAthlete from "./AddAthlete";
 
-class athletetList extends Component {
+class AthleteList extends Component {
   constructor() {
     super();
     this.state = { listOfAthletes: [] };
@@ -14,7 +14,7 @@ class athletetList extends Component {
 
   getAllAthletes = () => {
     axios
-      .get(process.env.REACT_APP_BASE_URL + `/athletes`)
+      .get("http://localhost:5000/api/projects")
       .then(responseFromApi => {
         this.setState({
           listOfAthletes: responseFromApi.data
@@ -45,10 +45,9 @@ class athletetList extends Component {
                   <h3>{athlete.Team}</h3>
                   <p>{athlete.name}</p>
                   <p>{athlete.position}</p>
-                  <h3>
-                    Status:
-                    {risk}{" "}
-                  </h3>
+                  <p>{athlete.injuryStatus}</p>
+                  <p>{athlete.riskLevel}</p>
+                  <p>{athlete.coachingDecision}</p>
                 </Link>
                 <p style={{ maxWidth: "400px" }}>{athlete.description} </p>
               </div>
@@ -56,11 +55,11 @@ class athletetList extends Component {
           })}
         </div>
         <div>
-          <AddProject getData={() => this.getAllAthletes()} />
+          <createNewAthlete getData={() => this.getAllAthletes()} />
         </div>
       </div>
     );
   }
 }
 
-export default ProjectList;
+export default AthleteList;

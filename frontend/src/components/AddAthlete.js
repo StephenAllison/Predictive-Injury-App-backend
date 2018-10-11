@@ -13,6 +13,7 @@ class CreateNewAthlete extends Component {
       team: "",
       name: "",
       position: "",
+      injuryStatus: "",
       physicalMediatingFactorScore: "",
       psychologicalMediatingFactorScore: "",
       socialMediatingFactorScore: "",
@@ -26,13 +27,14 @@ class CreateNewAthlete extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // const {imgPath, description} = this.state;
+    // const {imgPath, sport,league,team,name, position, injuryStatus,} = this.state;
     const imgPath = this.state.imgPath;
     const sport = this.state.sport;
     const league = this.state.league;
     const team = this.state.team;
     const name = this.state.name;
     const position = this.state.position;
+    const injuryStatus = this.state.injuryStatus;
     const physicalMediatingFactorScore = this.state
       .physicalMediatingFactorScore;
     const psychologicalMediatingFactorScore = this.state
@@ -54,6 +56,7 @@ class CreateNewAthlete extends Component {
         team,
         name,
         position,
+        injuryStatus,
         physicalMediatingFactorScore,
         psychologicalMediatingFactorScore,
         socialMediatingFactorScore,

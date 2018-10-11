@@ -62,9 +62,9 @@ class AthleteDetails extends Component {
     return (
       <div>
         <h3>{this.state.url}</h3>
+        <h3>{this.state.team}</h3>
         <h3>{this.state.sport}</h3>
         <h3>{this.state.league}</h3>
-        <h3>{this.state.team}</h3>
         <h3>{this.state.name}</h3>
         <h3>{this.state.position}</h3>
         <h3>{this.state.physicalMediatingFactorScore}</h3>
