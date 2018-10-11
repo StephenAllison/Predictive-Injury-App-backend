@@ -10,6 +10,7 @@ const athleteProfileSchema = new Schema({
   team: String,
   name: String,
   position: String,
+  injuryStatus: String,
   physicalMediatingFactorScore: Number,
   psychologicalMediatingFactorScore: Number,
   socialMediatingFactorScore: Number,
@@ -17,7 +18,8 @@ const athleteProfileSchema = new Schema({
   psychologicalModeratingFactorScore: Number,
   socialModeratingFactorScore: Number,
   injuryRiskScore: Number,
-  riskLevel: String
+  riskLevel: String,
+  coachingDecision: String
 });
 
 const AthleteProfile = mongoose.model("AthleteProfile", athleteProfileSchema);

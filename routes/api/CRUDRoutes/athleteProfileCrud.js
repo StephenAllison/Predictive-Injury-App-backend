@@ -101,6 +101,7 @@ router.put(
         team: req.body.team,
         name: req.body.name,
         position: req.body.position,
+        injuryStatus: req.body.injuryStatus,
         physicalMediatingFactorScore: req.body.physicalMediatingFactorScore,
         psychologicalMediatingFactorScore:
           req.body.psychologicalMediatingFactorScore,
@@ -110,7 +111,8 @@ router.put(
           req.body.psychologicalModeratingFactorScore,
         socialModeratingFactorScore: req.body.socialModeratingFactorScore,
         injuryRiskScore: req.body.injuryRiskScore,
-        riskLevel: req.body.riskLevel
+        riskLevel: req.body.riskLevel,
+        coachingDecision: req.body.coachingDecision
         // password:     hashPass,
       })
       .then(() => {
