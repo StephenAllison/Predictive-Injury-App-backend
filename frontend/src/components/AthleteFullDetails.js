@@ -61,8 +61,21 @@ class AthleteDetails extends Component {
   render() {
     return (
       <div>
-        <h1>{this.state.title}</h1>
-        <p>{this.state.description}</p>
+        <h3>{this.state.url}</h3>
+        <h3>{this.state.sport}</h3>
+        <h3>{this.state.league}</h3>
+        <h3>{this.state.team}</h3>
+        <h3>{this.state.name}</h3>
+        <h3>{this.state.position}</h3>
+        <h3>{this.state.physicalMediatingFactorScore}</h3>
+        <h3>{this.state.psychologicalMediatingFactorScore}</h3>
+        <h3>{this.state.socialMediatingFactorScore}</h3>
+        <h3>{this.state.physicalModeratingFactorScore}</h3>
+        <h3>{this.state.psychologicalModeratingFactorScore}</h3>
+        <h3>{this.state.socialModeratingFactorScore}</h3>
+        <h3>{this.state.injuryRiskScore}</h3>
+        <h3>{this.state.riskLevel}</h3>
+
         <button onClick={() => this.deleteAthlete()}>Delete Athlete</button>
 
         {this.renderEditForm()}

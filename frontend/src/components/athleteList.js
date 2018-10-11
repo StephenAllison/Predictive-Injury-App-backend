@@ -42,7 +42,9 @@ class athletetList extends Component {
                   }`}
                 >
                   <h3>{athlete.imgPath}</h3>
-                  <h3>{athlete.name}</h3>
+                  <h3>{athlete.Team}</h3>
+                  <p>{athlete.name}</p>
+                  <p>{athlete.position}</p>
                   <h3>
                     Status:
                     {risk}{" "}
