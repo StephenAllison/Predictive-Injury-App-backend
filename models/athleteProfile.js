@@ -18,12 +18,16 @@ const athleteProfileSchema = new Schema({
   psychologicalModeratingFactorScore: Number,
   socialModeratingFactorScore: Number,
   overallPhysiologicalHealth: Number,
-  overallPPsychologicalHealth: Number,
+  overallPsychologicalHealth: Number,
   overallSociologicalHealth: Number,
   injuryRiskScore: Number,
   medicalNote: String,
   coachingDecision: String
 });
+
+const overallPhysiologicalHealth =
+  athleteProfileSchema.physicalMediatingFactorScore +
+  athleteProfileSchema.psychologicalModeratingFactorScore;
 
 const AthleteProfile = mongoose.model("AthleteProfile", athleteProfileSchema);
 

@@ -129,6 +129,9 @@ router.put(
         psychologicalModeratingFactorScore:
           req.body.psychologicalModeratingFactorScore,
         socialModeratingFactorScore: req.body.socialModeratingFactorScore,
+        overallPhysiologicalHealth: req.body.overallPhysiologicalHealth,
+        overallPsychologicalHealth: req.body.overallPsychologicalHealth,
+        overallSociologicalHealth: req.body.overallSociologicalHealth,
         injuryRiskScore: req.body.injuryRiskScore,
         medicalNote: req.body.medicalNote,
         coachingDecision: req.body.coachingDecision
