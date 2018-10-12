@@ -2,9 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  img: String,
+  imgPath: String,
   sport: String,
-  league: String,
   team: String,
   staffingDivision: String,
   role: String,
@@ -19,6 +18,6 @@ const userSchema = new Schema({
 // } catch (error) {
 //   users = mongoose.model("User", userSchema);
 // }
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

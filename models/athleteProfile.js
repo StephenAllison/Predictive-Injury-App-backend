@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const athleteProfileSchema = new Schema({
   imgPath: String,
-  imgName: String,
+  // imgName: String,
   sport: String,
   league: String,
   team: String,
@@ -17,8 +17,11 @@ const athleteProfileSchema = new Schema({
   physicalModeratingFactorScore: Number,
   psychologicalModeratingFactorScore: Number,
   socialModeratingFactorScore: Number,
+  overallPhysiologicalHealth: Number,
+  overallPPsychologicalHealth: Number,
+  overallSociologicalHealth: Number,
   injuryRiskScore: Number,
-  riskLevel: String,
+  medicalNote: String,
   coachingDecision: String
 });
 

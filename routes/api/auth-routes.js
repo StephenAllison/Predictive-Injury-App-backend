@@ -74,14 +74,14 @@ authRoutes.post("/signup", (req, res, next) => {
   const password = req.body.password;
 
   if (!username || !password) {
-    res.status(400).json({
+    res.json({
       message: "Provide username and password"
     });
     return;
   }
 
   if (password.length < 7) {
-    res.status(400).json({
+    res.json({
       message:
         "Please make your password at least 7 characters long for security purposes."
     });
@@ -92,14 +92,14 @@ authRoutes.post("/signup", (req, res, next) => {
     },
     (err, foundUser) => {
       if (foundUser) {
-        res.status(400).json({
+        res.json({
           message: "Username taken. Choose another one."
         });
         return;
       }
 
       if (err) {
-        res.status(500).json({
+        res.json({
           message: "Username check went bad."
         });
         return;
@@ -121,7 +121,7 @@ authRoutes.post("/signup", (req, res, next) => {
 
       aNewUser.save(err => {
         if (err) {
-          res.status(400).json({
+          res.json({
             message: "Saving user to database went wrong."
           });
           return;

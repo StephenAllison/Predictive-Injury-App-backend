@@ -46,6 +46,7 @@ router.post(
     athleteProfile
       .create({
         imgPath: req.file.url,
+
         sport: req.body.sport,
         league: req.body.league,
         team: req.body.team,
@@ -60,8 +61,11 @@ router.post(
         psychologicalModeratingFactorScore:
           req.body.psychologicalModeratingFactorScore,
         socialModeratingFactorScore: req.body.socialModeratingFactorScore,
+        overallPhysiologicalHealth: req.body.overallPhysiologicalHealth,
+        overallPsychologicalHealth: req.body.overallPsychologicalHealth,
+        overallSociologicalHealth: req.body.overallSociologicalHealth,
         injuryRiskScore: req.body.injuryRiskScore,
-        riskLevel: req.body.riskLevel,
+        medicalNote: req.body.medicalNote,
         coachingDecision: req.body.coachingDecision
       })
       .then(response => {
@@ -119,13 +123,14 @@ router.put(
         physicalMediatingFactorScore: req.body.physicalMediatingFactorScore,
         psychologicalMediatingFactorScore:
           req.body.psychologicalMediatingFactorScore,
+
         socialMediatingFactorScore: req.body.socialMediatingFactorScore,
         physicalModeratingFactorScore: req.body.physicalModeratingFactorScore,
         psychologicalModeratingFactorScore:
           req.body.psychologicalModeratingFactorScore,
         socialModeratingFactorScore: req.body.socialModeratingFactorScore,
         injuryRiskScore: req.body.injuryRiskScore,
-        riskLevel: req.body.riskLevel,
+        medicalNote: req.body.medicalNote,
         coachingDecision: req.body.coachingDecision
         // password:     hashPass,
       })
