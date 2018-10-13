@@ -40,6 +40,11 @@ const debug = require("debug")(
 
 const app = express();
 
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/public/index.html");
+});
+
 // Middleware Setup
 app.use(logger("dev"));
 app.use(bodyParser.json());
@@ -104,9 +109,9 @@ app.use("/api", athleteProfile);
 const authRoutes = require("./routes/api/auth-routes");
 app.use("/api", authRoutes);
 
-// app.use((req, res, next) => {
-//   // If no routes match, send them the React HTML.
-//   res.sendFile(__dirname + "/public/index.html");
-// });
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 module.exports = app;
