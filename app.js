@@ -40,7 +40,12 @@ const debug = require("debug")(
 
 const app = express();
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://predictiveinjuryapp.herokuapp.com"
+  })
+);
 
 // app.use((req, res, next) => {
 //   // If no routes match, send them the React HTML.
