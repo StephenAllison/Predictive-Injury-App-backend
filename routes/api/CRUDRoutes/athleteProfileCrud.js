@@ -98,7 +98,7 @@ router.get("/athlete/:id", (req, res, next) => {
     });
 });
 //PUT route => Update Athlete
-router.put(
+router.patch(
   "/updateAthleteProfile/:id",
   uploadCloud.single("imgPath"),
   (req, res, next) => {
@@ -109,34 +109,10 @@ router.put(
       });
       return;
     }
-    const imgPath = req.file.url;
-    const athleteID = req.params.id
-      .findByIdAndUpdate(athleteID, {
-        imgPath: req.file.url,
-        imgName: req.file.originalname,
-        sport: req.body.sport,
-        league: req.body.league,
-        team: req.body.team,
-        name: req.body.name,
-        position: req.body.position,
-        injuryStatus: req.body.injuryStatus,
-        physicalMediatingFactorScore: req.body.physicalMediatingFactorScore,
-        psychologicalMediatingFactorScore:
-          req.body.psychologicalMediatingFactorScore,
-
-        socialMediatingFactorScore: req.body.socialMediatingFactorScore,
-        physicalModeratingFactorScore: req.body.physicalModeratingFactorScore,
-        psychologicalModeratingFactorScore:
-          req.body.psychologicalModeratingFactorScore,
-        socialModeratingFactorScore: req.body.socialModeratingFactorScore,
-        overallPhysiologicalHealth: req.body.overallPhysiologicalHealth,
-        overallPsychologicalHealth: req.body.overallPsychologicalHealth,
-        overallSociologicalHealth: req.body.overallSociologicalHealth,
-        injuryRiskScore: req.body.injuryRiskScore,
-        medicalNote: req.body.medicalNote,
-        coachingDecision: req.body.coachingDecision
-        // password:     hashPass,
-      })
+    // const imgPath = req.file.imgPath;
+    const athleteID = req.params.id;
+    athleteProfile
+      .findByIdAndUpdate(athleteID, req.body)
       .then(() => {
         res.json({
           message: `Profile ${req.params.id} has been updated successfully.`

@@ -49,7 +49,7 @@ class CreateNewAthlete extends Component {
     const riskLevel = this.state.riskLevel;
 
     axios
-      .post("http://localhost:3000/api/createnewathletes", {
+      .post("http://localhost:5000/api/createnewathletes", {
         imgPath,
         sport,
         league,

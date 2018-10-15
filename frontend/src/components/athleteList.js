@@ -14,8 +14,9 @@ class AthleteList extends Component {
 
   getAllAthletes = () => {
     axios
-      .get("http://localhost:5000/api/projects")
+      .get("http://localhost:5000/api/athletes")
       .then(responseFromApi => {
+        console.log(responseFromApi.data, "api data ======>");
         this.setState({
           listOfAthletes: responseFromApi.data
         });

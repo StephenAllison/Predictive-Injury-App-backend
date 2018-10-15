@@ -14,7 +14,8 @@ class AthleteList extends Component {
 
   getAllAthletes = () => {
     axios
-      .get(process.env.REACT_APP_BASE_URL + "/athletes")
+      .get("http://localhost:5000/athletes")
+      // .get(process.env.REACT_APP_BASE_URL + "/athletes")
       .then(responseFromApi => {
         this.setState({
           listOfAthletes: responseFromApi.data

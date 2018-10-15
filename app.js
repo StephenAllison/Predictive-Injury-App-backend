@@ -40,10 +40,12 @@ const debug = require("debug")(
 
 const app = express();
 
-app.use((req, res, next) => {
-  // If no routes match, send them the React HTML.
-  res.sendFile(__dirname + "/public/index.html");
-});
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+
+// app.use((req, res, next) => {
+//   // If no routes match, send them the React HTML.
+//   res.sendFile(__dirname + "/public/index.html");
+// });
 
 // Middleware Setup
 app.use(logger("dev"));
